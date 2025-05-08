@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 const PORT = 5000;
 
 async function main() {
-    await mongoose.connect(process.env.MONGO_DB_URL);
+    await mongoose.connect(process.env.MONGO_DB_URL || "mongodb+srv://Abhyas-AI:cq08kFtY8M9qSJAE@abhyasai.6izivbu.mongodb.net/abhyasDB?retryWrites=true&w=majority");
 }
 
 main().then(() => {
@@ -101,8 +101,8 @@ app.post('/info/resume', async (req, res) => {
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASS
+        user: process.env.GMAIL_USER || "abhyasai13@gmail.com",
+        pass: process.env.GMAIL_PASS || "yfyksgswcknxtavu"
     }
 
 });
