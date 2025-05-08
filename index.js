@@ -435,7 +435,7 @@ app.post('/request-password-reset', async (req, res) => {
         user.resetTokenExpiry = resetTokenExpiry;
         await user.save();
 
-        const resetLink = `http://localhost:5000/reset-password/${user.userUUID}/${resetToken}`;
+        const resetLink = `https://abhyas-server.onrender.com/reset-password/${user.userUUID}/${resetToken}`;
 
         await transporter.sendMail({
             from: 'Abhyas AI <abhyasai13@gmail.com>',
